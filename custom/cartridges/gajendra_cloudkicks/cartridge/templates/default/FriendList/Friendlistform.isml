@@ -1,0 +1,88 @@
+<form action="${URLUtils.url('MyFriendList-SaveFriendList', 'id', pdict.FriendId)}" method="POST">
+    <!-- Address Title -->
+    <iscomment> <div class="form-group
+        ${pdict.FriendListForm.addressId.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="addressId">
+            <isprint value="${pdict.FriendListForm.addressId.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="addressId"
+            <isprint value="${pdict.FriendListForm.addressId.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div> </iscomment>
+
+    <!-- Name -->
+    <div class="row">
+        <!-- First Name -->
+        <div class="col-6">
+            <div class="form-group
+                ${pdict.FriendListForm.firstname.mandatory === true ? 'required' : ''}">
+                <label class="form-control-label" for="firstname">
+                    <isprint value="${pdict.FriendListForm.firstname.label}" encoding="htmlcontent" />
+                </label>
+                <input type="text" class="form-control" id="firstname"
+                    <isprint value="${pdict.FriendListForm.firstname.attributes}" encoding="off" />
+                    autocomplete="given-name">
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-6">
+            <div class="form-group
+                ${pdict.FriendListForm.lastname.mandatory === true ? 'required' : ''}">
+                <label class="form-control-label" for="lastname">
+                    <isprint value="${pdict.FriendListForm.lastname.label}" encoding="htmlcontent" />
+                </label>
+                <input type="text" class="form-control" id="lastname"
+                    <isprint value="${pdict.FriendListForm.lastname.attributes}" encoding="off" />
+                    autocomplete="family-name">
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Address 1 -->
+    <div class="form-group
+        ${pdict.FriendListForm.nickName.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="nickName">
+            ${pdict.FriendListForm.nickName.label}
+        </label>
+        <input type="text" class="form-control" id="nickName"
+            <isprint value="${pdict.FriendListForm.nickName.attributes}" encoding="off" />
+            autocomplete="address-line1">
+        <div class="invalid-feedback"></div>
+    </div>
+    <!-- Address 2 -->
+    <div class="form-group
+        ${pdict.FriendListForm.dob.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="dob">
+            ${pdict.FriendListForm.dob.label}
+        </label>
+        <input type="date" class="form-control" id="dob"
+            <isprint value="${pdict.FriendListForm.dob.attributes}" encoding="off" />
+            autocomplete="billing address-line2">
+        <div class="invalid-feedback"></div>
+    </div>
+    <!-- Phone Number -->
+    <div class="form-group
+        ${pdict.FriendListForm.phone.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="phone">
+            <isprint value="${pdict.FriendListForm.phone.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="phone"
+            <isprint value="${pdict.FriendListForm.phone.attributes}" encoding="off" />
+            autocomplete="tel">
+        <div class="invalid-feedback"></div>
+    </div>
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+    <!-- Cancel and Save Buttons -->
+    <div class="row">
+        <div class="col-6">
+            <a href="${URLUtils.url('Address-List')}" class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel','account',null)}</a>
+        </div>
+        <div class="col-6">
+            <button type="submit" name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('button.save','account',null)}</button>
+        </div>
+    </div>
+
+</form>

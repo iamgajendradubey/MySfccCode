@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences xmlns="http://www.demandware.com/xml/impex/preferences/2007-03-31">
+    
+    <custom-preferences>
+        <all-instances/>
+        <development>
+            <preference preference-id="invoiceLogo">Amir passport picture_page-0001-modified.png</preference>
+            <preference preference-id="invoiceProductDetails">&lt;tr&gt;
+			&lt;td&gt;
+			&lt;p&gt;&lt;strong&gt;{0}&lt;/strong&gt;&lt;/p&gt;
+
+			&lt;p&gt;Item Number: {1}&lt;/p&gt;
+
+			&lt;p&gt;Color: {2}&lt;/p&gt;
+
+			&lt;p&gt;Size: {3}&lt;/p&gt;
+			&lt;/td&gt;
+			&lt;td&gt;{4}&lt;/td&gt;
+			&lt;td&gt;{5}&lt;/td&gt;
+			&lt;td&gt;
+			&lt;p&gt;{6}&lt;/p&gt;
+&lt;p&gt;{7}&lt;/p&gt;
+			&lt;p&gt;{8}&lt;/p&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;</preference>
+            <preference preference-id="invoiceTemplate">&lt;table border="1" cellpadding="4" cellspacing="0" style="width:500px;"&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;INVOICE:&lt;/th&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;{0}&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;{4}&lt;/th&gt;
+			&lt;td&gt;
+			&lt;p&gt;SiteGenesis&lt;/p&gt;
+
+			&lt;p&gt;5 Wall Street&lt;/p&gt;
+
+			&lt;p&gt;Burlington,MA 01803 USA&lt;/p&gt;
+			&lt;/td&gt;
+			&lt;td&gt;
+			&lt;p&gt;Order: {1}&lt;/p&gt;
+
+			&lt;p&gt;Date: {2}&lt;/p&gt;
+
+			&lt;p&gt;Total: {13}&lt;/p&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;Bill To:&lt;/th&gt;
+			&lt;td&gt;&amp;nbsp;&lt;/td&gt;
+			&lt;td&gt;
+			&lt;p&gt;{5}&lt;/p&gt;
+
+			&lt;p&gt;Phone: {6}&lt;/p&gt;
+
+			&lt;p&gt;Email: {7}&lt;/p&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th scope="row"&gt;Shipment Address :&lt;/th&gt;
+			&lt;td&gt;
+			&lt;p&gt;{8}&lt;/p&gt;
+			&lt;/td&gt;
+			&lt;td style="text-align: center;"&gt;{9}&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;</preference>
+    </custom-preferences>
+</preferences>
+

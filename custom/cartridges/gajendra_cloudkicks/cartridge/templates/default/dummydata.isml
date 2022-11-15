@@ -1,0 +1,10 @@
+shdjdgsahs
+ <isscript>
+          var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/customapicall.js');
+    </isscript>
+<input type="text" name="cgid" class="form-control col-4" placeholder="enter catagory">
+<button type="button" id="get-all-productByCgid-Ocapi">Get Product List</button>
+<div id="myOcApiResult" class="row">
+    
+</div>

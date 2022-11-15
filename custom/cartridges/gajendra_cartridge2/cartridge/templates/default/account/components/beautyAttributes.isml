@@ -1,0 +1,71 @@
+<div class="form-group
+        <isif condition="${!!pdict.profileForm.customer.agegroup.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-lname">
+            <isprint value="${pdict.profileForm.customer.agegroup.label}" encoding="htmlcontent" />
+        </label>
+        <input
+            type="date"
+            class="form-control"
+            id="registration-form-lname"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            aria-describedby="form-lname-error"
+            <isprint value=${pdict.profileForm.customer.agegroup.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-lname-error"></div>
+    </div>
+
+     <div class="form-group">
+
+        <label class="form-control-label" for="country">
+            <isprint value="${pdict.profileForm.customer.skintone.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control" id="skintone" <isprint
+            value="${pdict.profileForm.customer.skintone.attributes}" encoding="off" />>
+        <isloop items=${pdict.profileForm.customer.skintone.options} var="option">
+            <option id="${option.optionid}" value="${option.value}">${option.value}</option>
+        </isloop>
+        </select>
+        <div class="invalid-feedback"></div>
+    </div>
+
+     <div class="form-group">
+
+        <label class="form-control-label" for="country">
+            <isprint value="${pdict.profileForm.customer.haircolor.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control" id="haircolor" <isprint
+            value="${pdict.profileForm.customer.haircolor.attributes}" encoding="off" />>
+        <isloop items=${pdict.profileForm.customer.haircolor.options} var="option">
+            <option id="${option.optionid}" value="${option.value}">${option.label}</option>
+        </isloop>
+        </select>
+        <div class="invalid-feedback"></div>
+    </div>
+
+     <div class="form-group">
+
+        <label class="form-control-label" for="country">
+            <isprint value="${pdict.profileForm.customer.eyecolor.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control" id="eyecolor" <isprint
+            value="${pdict.profileForm.customer.eyecolor.attributes}" encoding="off" />>
+        <isloop items=${pdict.profileForm.customer.eyecolor.options} var="option">
+            <option id="${option.optionid}" value="${option.value}">${option.label}</option>
+        </isloop>
+        </select>
+        <div class="invalid-feedback"></div>
+    </div>
+
+     <div class="form-group">
+
+        <label class="form-control-label" for="country">
+            <isprint value="${pdict.profileForm.customer.skintype.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control" id="skintype" <isprint
+            value="${pdict.profileForm.customer.skintype.attributes}" encoding="off" />>
+        <isloop items=${pdict.profileForm.customer.skintype.options} var="option">
+            <option id="${option.optionid}" value="${option.value}">${option.label}</option>
+        </isloop>
+        </select>
+        <div class="invalid-feedback"></div>
+    </div>

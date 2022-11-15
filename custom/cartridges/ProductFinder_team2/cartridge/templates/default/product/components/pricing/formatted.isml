@@ -1,0 +1,4 @@
+${price.formatted}
+
+&#x20AC;
+<isinclude url="${dw.web.URLUtils.url('Servicecall-currencyconvert1','amount',price.decimalPrice,'from',price.currency,'to','eur')}" sf-toolkit="on" />

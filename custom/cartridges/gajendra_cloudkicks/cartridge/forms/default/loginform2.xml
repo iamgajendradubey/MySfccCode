@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+<field 
+			formid="firstname" 
+			label="label.input.firstname.profile" 
+			mandatory="true" 
+			max-length="50"
+			missing-error="error.message.required" 
+			range-error="error.message.50orless" 
+			type="string" />
+
+		<field 
+			formid="lastname" 
+			label="label.input.lastname.profile" 
+			mandatory="true" 
+			max-length="50" 
+			missing-error="error.message.required"
+			range-error="error.message.50orless" 
+			type="string" />
+
+			<field 
+			formid="msg" 
+			label="label.input.msg.profile" 
+			mandatory="true" 
+			max-length="250" 
+			missing-error="error.message.required"
+			range-error="error.message.50orless" 
+			type="string" />
+    <field
+			formid="email"
+			label="label.input.email.profile"
+			mandatory="true"
+			max-length="50"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.email.profile.form"
+			range-error="error.message.50orless"
+			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+			value-error="ValueErrorText"
+			type="string"/>
+
+			<!-- TODO value-error not comming back from the platform -->
+     <field 
+			formid="password" 
+			label='label.input.password.profile'
+			mandatory="true"
+			min-length="8"
+			max-length="255"
+			range-error="error.message.8_255characters"
+			value-error="error.message.currentpasswordnomatch"
+			type="string" />
+
+			   
+		  <field formid="degree" label="label.input.subject.profile" type="string" mandatory="true" binding="graduation"
+           missing-error="address.country.missing">
+        <options>
+            <option optionid="M.tech" label="M.tech" value="M.tech"/>
+            <option optionid="M.BA" label="M.BA" value="M.BA"/>
+            <option optionid="M.sc" label="M.sc" value="M.sc"/>
+        </options>
+    </field>  
+
+	<!-- <field formid="nickname" label="Nickname:" type="string" mandatory="true" max-length="50" /> -->
+	<action formid="submit" valid-form="true"/>
+	<action formid="cancel" valid-form="false"/>
+</form>

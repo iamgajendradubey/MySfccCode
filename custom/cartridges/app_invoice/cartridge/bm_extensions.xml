@@ -1,0 +1,15 @@
+
+
+    <menuaction id="my-menu-action" menupath="my-menu-item" position="500" site="false">
+        <name xml:lang="x-default">Invoice printttt</name>
+        <short_description xml:lang="x-default">dummy menu action</short_description>
+
+        <description xml:lang="x-default">dummy menu action.</description>
+
+        <exec pipeline="ViewTestResourcebundleSupport" node="Start" />
+
+        <sub-pipelines>
+            <pipeline name="ViewPrintOrder_52-Hello" />
+        </sub-pipelines>
+    </menuaction>
+

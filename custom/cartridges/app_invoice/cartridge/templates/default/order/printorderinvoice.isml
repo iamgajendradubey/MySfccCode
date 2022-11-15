@@ -1,0 +1,257 @@
+
+<isset name="shipment" value="" scope="page" />
+<table style="border-collapse: collapse">
+<tr>
+<td>
+<isif condition="${dw.system.Site.current.preferences.custom.invoiceTemplate}">
+		<isprint value="${dw.util.StringUtils.format(dw.system.Site.current.preferences.custom.invoiceTemplate,
+		pdict.Order.invoiceNo, 
+		pdict.Order.currentOrderNo, 
+		pdict.Order.creationDate,
+		'address',
+		`<img width="115" height="115" src="` + dw.system.Site.current.preferences.custom.invoiceLogo.getURL() + `" />`,
+		pdict.Order.customer.profile.firstName + ' ' + pdict.Order.customer.profile.lastName,
+		pdict.Order.customer.profile.phoneHome,
+		pdict.Order.customer.profile.email,
+		`<ul style="list-style-type:none">
+			<li>` + pdict.Order.billingAddress.address1 + ` ` + pdict.Order.billingAddress.city + `</li>
+			<li>` + pdict.Order.billingAddress.stateCode + ' ' + pdict.Order.billingAddress.postalCode + `</li>
+		</ul>`,
+		`<img src="https://chart.googleapis.com/chart?cht=qr&chs=90x90&chl=geo:` + pdict.Order.custom.lat +`,`+ pdict.Order.custom.lon +`"/>`,
+		pdict.Order.paymentInstrument.paymentMethod,
+		pdict.Order.paymentInstrument.creditCardType,
+		`<ul style="list-style-type:none">
+			<li>` + pdict.Order.paymentInstrument.creditCardNumber + `</li>
+			<li>` + pdict.Order.paymentInstrument.creditCardHolder + `</li>
+			<li>` + pdict.Order.paymentInstrument.creditCardExpirationMonth + ' ' + pdict.Order.paymentInstrument.creditCardExpirationYear + `</li>
+		</ul>`,
+		pdict.Order.getTotalGrossPrice()
+		)}" encoding="off" />
+		</td>
+		</tr>
+	<tr>
+	<td>
+		<isloop items="${pdict.Order.getShipments()}" var="shipment" status="shipmentStatus">
+			<tr valign="top">
+				<td colspan="3" class="infobox_item bold aldi">
+				<div class="printinvoice" style="border-collapse: collapse">
+					<div id="orderdetailstable">
+					<h3>
+						Shipment&nbsp; ${shipmentStatus.count}
+					</h3>
+					<table style="width: 80%;" class="producttable" border="1" cellspacing="0" cellpadding="4"  style="border-collapse: collapse">
+						<thead>
+						<tr>
+							<th>Product Details</th>
+							<th>Qty.</th>
+							<th>Total</th>
+							<th>Shipping Details</th>
+						</tr>
+						</thead>
+						<tbody>
+						<isloop items="${shipment.productLineItems}" var="productLineItem" status="productLineItemStatus">
+						<isprint value="${dw.util.StringUtils.format(dw.system.Site.current.preferences.custom.invoiceProductDetails,
+						productLineItem.product.name,
+						productLineItem.product.ID,
+						productLineItem.product.custom.color || 'Not applied',
+						productLineItem.product.custom.size || 'Not applied',
+						productLineItem.quantity.value,
+						shipment.totalGrossPrice,
+						shipment.shippingAddress.firstName + ' ' + shipment.shippingAddress.lastName,
+						`<p>` + shipment.shippingAddress.address1 + ` ` + shipment.shippingAddress.city + `</p>
+						<p>` + shipment.shippingAddress.stateCode + ' ' + shipment.shippingAddress.postalCode + `</p>`,
+						shipment.shippingMethod.displayName,
+						shipment.shippingTotalNetPrice
+						)}" encoding="off" />
+						</isloop>
+						</tbody>
+					</table>
+					</div>
+				</div>
+				</td>
+			</tr>
+		</isloop>
+		</td>
+	</tr>
+
+</table>
+<iselse/>
+<table border="1" cellspacing="0" cellpadding="4">
+	<tr>
+		<td class="left">
+			<h2>Invoice:</h2>
+		</td>
+		<td colspan="2" class="right">
+			<h2>${pdict.Order.invoiceNo}</h2>
+		</td>
+	</tr>
+	<tr>
+		<td class="w n"><img width="115" height="115"
+				src="${dw.system.Site.current.preferences.custom.invoiceLogo.getURL()}" /></td>
+		<td class="table_detail bold n">
+			<table>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap">SiteGenesis</td>
+				</tr>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap">5 Wall Street</td>
+				</tr>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap">Burlington, MA 01803 USA</td>
+				</tr>
+			</table>
+		</td>
+		<td class="table_detail right bold e n">
+			<table>
+				<tr>
+					<td align="left" class="infobox_item" nowrap="nowrap">Order:</td>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.currentOrderNo}</td>
+				</tr>
+				<tr>
+					<td align="left" class="infobox_item" nowrap="nowrap">Date:</td>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.creationDate}</td>
+				</tr>
+				<tr>
+					<td align="left" class="infobox_item" nowrap="nowrap">Total:</td>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.getTotalGrossPrice()}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td class="table_detail bold w n">Bill To:</td>
+		<td class="table_detail n">
+			<table>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.customer.profile.firstName}</td>
+				</tr>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap"> ${pdict.Order.customer.profile.lastName}</td>
+				</tr>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.billingAddress.address1}</td>
+				</tr>
+				<tr>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.billingAddress.countryCode}</td>
+				</tr>
+			</table>
+		</td>
+		<td class="table_detail n e">
+			<table>
+				<tr>
+					<td align="left" class="infobox_item" nowrap="nowrap">Phone:</td>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.customer.profile.phoneHome}</td>
+				</tr>
+				<tr>
+					<td align="left" class="infobox_item" nowrap="nowrap">Email:</td>
+					<td class="infobox_item" nowrap="nowrap">${pdict.Order.customer.profile.email}</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr valign="top">
+
+		<td colspan="1" class="table_detail n w bold">Payment Method: ${pdict.Order.paymentInstrument.paymentMethod}
+		</td>
+
+		<td colspan="1" class="table_detail n e">
+			<div class="minicreditcard">
+				<div class="type">
+					${pdict.Order.paymentInstrument.creditCardType}
+				</div>
+				<div class="number">
+					${pdict.Order.paymentInstrument.creditCardNumber}
+				</div>
+				<div class="expiration">
+					<span class="month">${pdict.Order.paymentInstrument.creditCardExpirationMonth}</span>/<span
+						class="year">${pdict.Order.paymentInstrument.creditCardExpirationYear}</span>
+				</div>
+				<div class="owner">
+					${pdict.Order.paymentInstrument.creditCardHolder}
+				</div>
+			</div>
+			<div class="type">Amount: ${pdict.Order.getTotalGrossPrice()}</div>
+		</td>
+
+		<td colspan="1" class="table_detail n w bold">
+			<img
+				src="https://chart.googleapis.com/chart?cht=qr&chs=90x90&chl=geo:${pdict.Order.custom.lat},${pdict.Order.custom.lon}">
+		</td>
+
+	</tr>
+	<isloop items="${pdict.Order.getShipments()}" var="shipment" status="shipmentStatus">
+		<div>
+			<tr valign="top">
+				<td colspan="3" class="infobox_item bold aldi">
+					<div class="printinvoice">
+						<div id="orderdetailstable">
+							<h3>
+								Shipment&nbsp; ${shipmentStatus.count}
+							</h3>
+							<table class="producttable" border="1" cellspacing="0" cellpadding="4">
+								<thead>
+									<tr>
+										<th>Product Details</th>
+										<th>Qty.</th>
+										<th>Total</th>
+										<th>Shipping Details</th>
+									</tr>
+								</thead>
+								<tbody>
+									<isloop items="${shipment.productLineItems}" var="productLineItem"
+										status="productLineItemStatus">
+										<tr>
+											<td class="product">
+												<b>${productLineItem.product.name}</b>
+												<div class="sku">
+													<span class="key">Item Number:</span><span class="value">
+														${productLineItem.product.ID}</span>
+												</div>
+												<div class="variation">Color : ${productLineItem.product.custom.color}
+												</div>
+												<div class="variation">Size : ${productLineItem.product.custom.size}
+												</div>
+											</td>
+											<td class="quantitycolumn"> ${productLineItem.quantity.value}</td>
+											<td class="price"> ${shipment.totalGrossPrice}</td>
+											<td rowspan="2" width="25%" valign="top">
+												<div class="summarybox">
+													<div class="name">
+														<span
+															class="firstname">${shipment.shippingAddress.firstName}</span>
+														<span
+															class="lastname">${shipment.shippingAddress.lastName}</span>
+														<div class="street">
+															<div class="line1">${shipment.shippingAddress.address1}
+															</div>
+															<div class="line2">${shipment.shippingAddress.address2}
+															</div>
+														</div>
+														<div class="location">
+															<span
+																class="city">${shipment.shippingAddress.city}</span><span
+																class="statedivider">,&nbsp;</span>
+															<span
+																class="state">${shipment.shippingAddress.stateCode}&nbsp;</span><span
+																class="zip">${shipment.shippingAddress.postalCode}</span>
+														</div>
+													</div>
+													<div class="shippingmethod">${shipment.shippingMethod.displayName} -
+														${shipment.shippingTotalNetPrice}</div>
+												</div>
+											</td>
+										</tr>
+									</isloop>
+								</tbody>
+							</table>
+							<div class="clear">
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</div>
+	</isloop>
+</table>
+</isif>

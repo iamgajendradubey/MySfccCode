@@ -1,0 +1,13 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/contactUs.js');
+        assets.addCss('/css/contactUs.css');
+        assets.addCss('/css/style.css');
+    </isscript>
+
+    <div class="container">
+        <h1 class="text-center p-5 text-muted"> Sorry! <br/>You are not authorized for this product..</h1>
+        <img class="restricted-image" src="" alt=""/>
+    </div>
+</isdecorate>

@@ -1,0 +1,63 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/productTile.js');
+        assets.addCss('/css/homePage.css');
+    </isscript>
+
+    <div>
+        <iscomment>
+            <isinclude template="header" sf-toolkit="on" />
+        </iscomment>
+
+             <iscomment> <isprint value="${dw.system.Site.current.preferences.custom.GajendraDiv}" encoding="html"/> </iscomment>
+
+        <div class="d-flex align-items-center justify-content-center align-items-center">
+            <div class="border col-md-4 align-middle my-5 mt-3 bg-light"
+                style="box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.057)">
+
+                <div class=" text-center">
+                    <h1>
+                        ${pdict.heading}
+                    </h1>
+               
+            <iscomment> <isset name="ptag" value="${dw.system.Site.current.preferences.custom.GajendraDiv}" scope="page" /> </iscomment>
+             <iscomment> ${dw.system.Site.current.preferences.custom.GajendraDiv} </iscomment>
+             <iscomment> <isprint value="${dw.system.Site.current.preferences.custom.GajendraDiv}" encoding="off"/> </iscomment>
+             <iscomment> <isprint value="${dw.system.Site.current.preferences.custom.LoyalityPoints}" encoding="off"/> </iscomment>
+                </div>
+                <form action="${pdict.actionUrl}" class="registration" method="POST">
+
+
+                    <div class=" m-3">
+                       
+                        <div class="form-group m-3">
+                <label class="form-control-label" for="country">
+                    <iscomment> <isprint value="${pdict.SFRAhelloform.firstname.label}" encoding="htmlcontent" /> </iscomment>
+                Enter criteria
+                </label>
+               <input type="text" class="form-control" id="registration-form-email"
+                    data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form', 'forms', null)}"
+                    data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                    aria-describedby="form-email-error"
+                     <isprint value="${pdict.SFRAhelloform.firstname.attributes}"
+                    encoding="off" />>
+                <div class="invalid-feedback"></div>
+            </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <button type="submit" name="submit" class="btn btn-block btn-primary">Submit</button>
+                    </div>
+                    <div class="col-6">
+                        <button type="reset" name="cancel" class="btn btn-block btn-primary">Cancel</button>
+                    </div>
+                </div>
+                </form>
+                <iscomment> <isinclude url="${dw.web.URLUtils.url('Test-Login')}" sf-toolkit="on" /> </iscomment>
+            </div>
+        </div>
+
+
+    </div>
+
+</isdecorate>

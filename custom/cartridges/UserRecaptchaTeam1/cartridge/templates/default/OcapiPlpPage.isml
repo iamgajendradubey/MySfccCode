@@ -1,0 +1,63 @@
+<isdecorate template="common/layout/page">
+
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/productDetail.js');
+        assets.addJs('/js/customCart.js');
+        assets.addCss('/css/product/detail.css');
+    </isscript>
+    
+    <iscomment> <isinclude url="${URLUtils.url('Product-Testing')}" />
+
+    <isinclude template="result" /> </iscomment>
+    
+      <div class="container d-flex align-items-center section-heading" style="height:100px">
+              <h2 class="text-success">${pdict.responce.count} Products found</h2>
+       </div>
+    <div class="row">
+        <isloop items="${pdict.responce.hits}" var="p" status="attributeStatus">
+            <div class="col-md-3 col-sm-6">
+                <div class="card col-11 shadow1" style="height: 93%;max-height:450px">
+                    <a href="https://bjxc-002.sandbox.us01.dx.commercecloud.salesforce.com/s/RefArch-gajendra/${p.product_name}/${p.product_id}.html?lang=en_US"
+                        class="text-decoration-none text-dark">
+
+                        <img src="${p.image.link}" class="card-img-top"
+                            style="max-height:200px;" alt="${p.image.alt}"
+                            title="${p.image.title}">
+                    </a>
+                    <div class="card-body " style="margin-top: -10%;">
+                        <p class="card-text">
+                            <h4 style="font-size:20px;font-weight:400;text-align:center;margin:0">
+                                <b>${p.product_name}</b>
+                            </h4>
+                            <h4 style="margin: 4px 0 8px;font-size:11px; opacity: 0.7;text-align: left; overflow:hidden;">
+                            </h4>
+                            <p>Here is ${p.product_name} which is of price</p>
+                             <h3 style="padding:0 2px 0 0 ;font-weight:500;font-size:23px;text-align: center;">
+                                <del
+                                    style="padding:0 2px;opacity:.7;font-size:10px;text-decoration: line-through;">$ ${p.price}
+                                </del>
+                                <b style="color: #ff905a;"> $ ${p.price_per_unit}
+                                </b>
+                             </h3> 
+                        </p>
+                        <div class="col-sm-12">
+                            <iscomment> <input type="hidden" class="add-to-cart-url-gajendra"
+                                value="/on/demandware.store/Sites-RefArch-gajendra-Site/en_US/Cart-AddProduct">
+                            <button class="add-to-cart-gajendra btn btn-primary w-100" data-toggle="modal"
+                                data-target="#chooseBonusProductModal" data-pid="${p.product_id}">
+                                <i class="fa fa-shopping-bag"></i>
+                                Add to Cart
+                            </button> </iscomment>
+
+                        <a href="${URLUtils.url('NewOcapiApp-GetProduct','p',p.product_id)}" class="add-to-cart-gajendra btn btn-primary w-100">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </isloop>  
+    </div>
+
+    
+   
+</isdecorate>

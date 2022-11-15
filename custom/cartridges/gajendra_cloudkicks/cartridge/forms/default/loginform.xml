@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+<field 
+			formid="firstname" 
+			label="label.input.firstname.profile" 
+			mandatory="true" 
+			max-length="50"
+			regexp="^[A-Za-z]+$" 
+			missing-error="error.message.required" 
+			range-error="error.message.50orless" 
+			type="string" />
+
+		<field 
+			formid="lastname" 
+			label="label.input.lastname.profile" 
+			mandatory="true" 
+			max-length="50" 
+			regexp="^[A-Za-z]+$"
+			missing-error="error.message.required"
+			range-error="error.message.50orless" 
+			type="string" />
+<field 
+			formid="phone"
+			label="label.input.phone.profile"
+			mandatory="true"
+			regexp="^\(?([2-9][0-8][0-9])\)?[\-\. ]?([2-9][0-9]{2})[\-\. ]?([0-9]{4})(\s*x[0-9]+)?$"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.phone.profile.form"
+			type="string"/> 
+
+			<field 
+			formid="msg" 
+			label="label.input.msg.profile" 
+			mandatory="true" 
+			max-length="250" 
+			missing-error="error.message.required"
+			range-error="error.message.50orless" 
+			type="string" />
+
+          <field 
+			formid="Inputtext" 
+			label="label.input.inputText.profile" 
+			mandatory="true" 
+			max-length="50" 
+			missing-error="error.message.required"
+			range-error="error.message.50orless" 
+			type="string" />
+
+			 <field 
+			formid="nickName" 
+			label="Nick Name" 
+			mandatory="true" 
+			max-length="50" 
+			regexp="^[A-Za-z]+$"
+			missing-error="error.message.required"
+			range-error="error.message.50orless" 
+			type="string"
+			binding="nickname" />
+
+    <field
+			formid="email"
+			label="label.input.email.profile"
+			mandatory="true"
+			max-length="50"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.email.profile.form"
+			range-error="error.message.50orless"
+			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+			value-error="ValueErrorText"
+			type="string"/>
+     <field
+			formid="password"
+			label='label.input.password.profile'
+			mandatory="true"
+			min-length="8"
+			max-length="255"
+			range-error="error.message.8_255characters"
+			value-error="error.message.currentpasswordnomatch"
+			type="string" />
+		  <field formid="degree" label="label.input.subject.profile" type="string" mandatory="true" binding="graduation"
+           missing-error="address.country.missing">
+        <options>
+           <options label-binding="value" value-binding="key" optionid-binding="key" />
+        </options>
+    </field>
+ <field
+			formid="agegroup"
+			label="Date of Birth"
+			mandatory="true"
+			max-length="50"
+			missing-error="error.message.required"
+			range-error="error.message.50orless"
+			type="string" />
+
+			<field
+			formid="dob"
+			label="Date of Birth"
+			mandatory="true"
+			max-length="10"
+			missing-error="error.message.required"
+			range-error="error.message.50orless"
+			type="string"
+			binding="dob" />
+	<action formid="submit" valid-form="true"/>
+	<action formid="cancel" valid-form="false"/>
+</form>

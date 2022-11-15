@@ -1,0 +1,22 @@
+{
+    "name": "newCustomLayoutComponent",
+    "description": "Image, text overlay that links user to a category using the markup editor",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+      {
+        "id": "CustombannerImage",
+        "name": "Banner Image",
+        "description": "The visual display of the banner image in the background.",
+        "attribute_definitions": [
+          {
+            "id": "image",
+            "name": "Image",
+            "type": "image",
+            "required": true
+          }
+        ]
+      }
+    ],
+    "region_definitions": []
+  }
+  

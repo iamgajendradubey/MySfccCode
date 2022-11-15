@@ -1,0 +1,97 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/addressBook.js');
+        assets.addJs('/js/Confirm.js');
+        assets.addCss('/css/account/addressBook.css');
+    </isscript>
+    <div class="hero slant-down account-image">
+        <h1 class="page-title">My Friend List</h1>
+    </div>
+    <div class="container">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <isif condition="${pdict.addressBook.length === 0}">
+             <div class="row justify-content-center">
+                 <div class="col">
+                     <h3>You Have Not Added Any Friend </h3>
+                 </div> 
+            </div>
+        </isif>
+        <div id="DeleteMsgDisplay" class="text-danger">
+            
+        </div>
+        <!-- Rows for addresses in the Address Book -->
+            <div class="row justify-content-center">
+        <isloop items="${pdict.AllFriendList}" var="Friend">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="address-heading pull-left">${Friend.fullname}</h2>
+                            <a href="${URLUtils.url('MyFriendList-EditFriendList', 'id', Friend.fid)}" class="pull-right" aria-label="Edit Friend">Edit</a>
+                        </div>
+                        <div class="card-body card-body-positioning">
+                            <div>Name: ${Friend.fullname}</div>
+                            <div>Nickname: ${Friend.nickname}</div>
+                            <div>Phone No.: ${Friend.phoneno}</div>
+                            <div>Date of Birth: ${Friend.dob}</div>
+                            <button
+                                type="button"
+                                class="remove-btn btn-light deleteFriendFromList"
+                                data-toggle="modal"
+                                data-target="#deleteFriendFromList"
+                                data-id="${Friend.fid}"
+                                data-url="${pdict.actionUrls.deleteActionUrl}"
+                                aria-label="Delete Friend"
+                                >
+                                &times;
+                            </button>
+
+                            <div class="modal fade" id="deleteFriendFromList" tabindex="-1" role="dialog" aria-labelledby="deleteAddressModalTitle">
+   
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header delete-confirmation-header">
+                <h2 class="modal-title" id="deleteAddressModalTitle" aria-label="Delete Friend">Delete confirmation</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body delete-confirmation-body">
+                Are you sure you want to remove the following Friend from Your Friend List?
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">NO</button>
+                 <button type="submit" class="btn btn-primary delete-confirmation-btn confirm-gajendra"
+                        data-dismiss="modal" 
+                         data-pid="${Friend.fid}"
+                                data-url="${pdict.actionUrls.deleteActionUrl}"
+                                
+                >YES</button>  
+                            <iscomment> <a href="${URLUtils.url('MyFriendList-deleteFriendList', 'id', Friend.fid)}" class="btn btn-primary delete-confirmation-btn" >YES</a> </iscomment>
+
+            </div>
+        </div>
+    </div>
+</div>
+                        </div>
+                    </div>
+                </div>
+                
+        </isloop>
+            </div>
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="${URLUtils.url('Account-Show')}" class="btn btn-primary" aria-label="${Resource.msg('label.addressbook.myaccount','account',null)}">
+                            ${Resource.msg('link.profile.backtomyaccount','account',null)}
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="${URLUtils.url('MyFriendList-AddFriendList')}" class="btn btn-save btn-block btn-primary" aria-label="Add New Fro">${Resource.msg('button.addnew','account',null)}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

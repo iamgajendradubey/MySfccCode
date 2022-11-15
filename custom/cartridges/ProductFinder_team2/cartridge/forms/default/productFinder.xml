@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+    <field
+    formid="city"
+    label="label.input.city"
+    type="string"
+    mandatory="true"
+    missing-error="address.city.missing"/>
+    <action formid="apply" valid-form="true"/>
+    <action formid="remove" valid-form="false"/>
+</form>

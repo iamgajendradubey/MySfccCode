@@ -1,0 +1,23 @@
+<isdecorate template="common/layout/page">
+        <!-- dwMarker="content" dwContentID="${pdict.content.UUID}" -->
+        <div class="shop-the-style">
+                <isslot id="pdp_banner" description="its a custom slot for pdp page" context="global" />
+        </div>
+        <div>
+                <div class="container d-flex align-items-center section-heading mt-3" style="height:60px">
+                        <h2>Festival Special</h2>
+                </div>
+                <p class="m-5 mb-3">
+                      On this Festival Special Moment,We salesforce Team are giving many many happy wishes to you and your family 
+                     <h2 class="m-5">You Are Very Valuable to us </h2> 
+                </p>
+                <p class="m-5 mb-3 text-success">
+                DISCOUNT...
+                enjoy 30% discount on This festival time!!
+                </p>
+        </div>
+       <div>
+                <isslot id="pdp_banner_product" description="its a custom slot for pdp page for promotion" context="global" />
+        </div>
+        <!-- END_dwmarker -->
+</isdecorate>

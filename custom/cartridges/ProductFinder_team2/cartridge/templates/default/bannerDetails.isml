@@ -1,0 +1,15 @@
+<isdecorate template="common/layout/page">
+        <!-- dwMarker="content" dwContentID="${pdict.content.UUID}" -->
+        <div class="shop-the-style">
+                <isslot id="pdp_banner" description="its a custom slot for pdp page" context="global" />
+        </div>
+        <div>
+                <div class="container d-flex align-items-center section-heading mt-3" style="height:60px">
+                       <h1 class="text-center"><b>It’s Diwali, and it’s sale time</b> </h1>
+                </div>
+                <p class="m-5 text-success">
+                        The festival of lights is indeed a beautiful time to celebrate with your loved ones. The glittering lights, diyas and lanterns fill the sky as this festival is celebrated all over the country and even in some parts of the world as well. Also known as Deepawali, this festival is a very auspicious occasion that is celebrated with much fervour, cheer and joy. Diwali symbolises positive and happy spirits. People dress up in beautiful, traditional attires and look their absolute best while donning accessories or jewellery. People cook delicious meals and sweets that make Diwali even more delightful. The fresh aroma of sweets are mouthwatering and people exchange gifts with each other on this occasion.
+                </p>
+        </div>
+        <!-- END_dwmarker -->
+</isdecorate>

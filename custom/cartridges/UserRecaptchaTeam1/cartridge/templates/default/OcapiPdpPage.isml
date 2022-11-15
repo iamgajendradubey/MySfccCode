@@ -1,0 +1,243 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/homePage.css');
+        assets.addJs('/js/customapicall.js');  
+    </isscript>
+    <div class="row">
+        <div class="row col-md-7" style="height:1230px">
+            <div class="col-md-11" style="margin-right: 10%; margin-left: 5%;">
+                <a href="#">
+                    <img style="width: 580px; height:750px; margin-left:30px; margin-top:10px"
+                        alt="${pdict.responce.image_groups[0].images[0].alt}" id="product_detail_img"
+                        src="${pdict.responce.image_groups[0].images[0].dis_base_link}"></a>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h2 id="product_detail_name"><b>${pdict.responce.name}</b></h2>
+            <h5 style="color: grey;" id="product_detail_description">${pdict.responce.short_description}</h5>
+            <a href="#" class="btn bg-transparent" class="product_detail_rating" style="border:2px solid red">4.5 <i
+                    class="fa fa-star" style="font-size:13px; color: green;"></i>| 200k</a>
+            <hr style="margin-top: 3%;">
+            <h2 style="display:inline; float:left" id="product_detail_discount_price">$ ${pdict.responce.price}</h2>
+            <s style="display:inline; float:left; margin-top: 10px; margin-left:10px ; color: gray;"
+                id="product_detail_price">RS. ${pdict.responce.price}</s>
+            <h6 style="  margin-left:18px; margin-top: 5%; color: orangered;" id="product_detail_discount">(5% OFF)</h6>
+            <h5 style="color:green; margin-top: 5%;">inclusive of all taxes </h5><br>
+            <h5 style="display: inline;">SELECT SIZE</h5>
+            <h5 style="color: #FF3E6C; margin-top: -5%; margin-left: 25%;">SIZE CHART ></h5><br>
+            <div id="p_size">
+                <iscomment> <button type="checkbox" id="small" class="size"> L</button>
+                    <button type="checkbox" id="small" class="size"> S</button>
+                    <button type="checkbox" id="small" class="size"> XL</button>
+                    <button type="checkbox" id="small" class="size"> M</button> </iscomment>
+            </div>
+            <br><br><br>
+            <div style="margin-top: -2%;">
+                <button type="button" class="btn btn-primary btn-lg" onclick="alert('${pdict.responce.id}')"
+                    style="height: 44px; width:250px; background-color: #FF3E6C; color: white; border: none;"><i
+                        class='fa fa-shopping-bag' style="margin-right: 5px;"></i>
+                    ADD TO BAG</button>
+                <button type="button" id="wishlist" class="btn btn-primary btn-lg"
+                    style="height: 44px; width:150px; background-color: white ; color: black;"><i class="fa fa-heart-o"
+                        style="font-size:14px"></i>WISHLIST</button>
+            </div><br>
+
+            <h4><b>DELIVERY OPTIONS <i class="fa fa-truck" aria-hidden="true"></i>
+                </b></h4><br>
+            <input type="text" id="check" placeholder="Enter pincode">
+            <p style="font-size: 12px;">
+                <br> Please enter PIN code to check delivery time & Pay on Delivery Availability<br><br><br>
+
+                100% Original Products<br>
+                Pay on delivery might be available<br>
+                Easy 30 days returns and exchanges<br>
+                Try & Buy might be available
+                <br><br><br><br>
+
+                <b>BEST OFFERS</b><br><br>
+                <b> Best Price: ${pdict.responce.price}</b><br>
+
+                &bull; Applicable on: Orders above Rs. 799 (only on first purchase)<br>
+                &bull; Coupon code: HELLO200<br>
+                &bull; Coupon Discount: Rs. 200 off (check cart for final savings)<br><br>
+
+                <b><a href="#" style="color:#FF3E6C; text-decoration: none;">View Eligible Products </a></b><br><br>
+                <b>EMI option available</b><br>
+                EMI starting from Rs.40/month<br><br>
+                <b><a href="#" style="color:#FF3E6C; text-decoration: none;">View Plan </a></b><br>
+                <hr>
+
+            </p>
+
+            <p style="font-size: 12px;">
+                <b>PRODUCT DETAILS</b><br><br>
+                <p id="product_detail_description"> ${pdict.responce.long_description} </p><br><br>
+
+                <b>Size & Fit</b><br>
+                The model (height 6') is wearing a size M,<br><br>
+
+                <b>Material & Care</b><br>
+                50% cotton, 50% polyester<br>
+                Machine-wash<br><br>
+
+                <b>Specifications</b><br><br>
+
+                <div class="row">
+                    <div class="row col-md-12">
+                        <div class="col-md-6">
+                            <p style="font-size: 11px; color: gray;">Fabric 2<br></p>
+                            <p style="font-size: 13px"> Polyester</p>
+                            <p style="font-size: 11px; color: gray;">Length<br></p>
+                            <p style="font-size: 13px"> Regular</p>
+                            <p style="font-size: 11px; color: gray;">Multipack Set<br></p>
+                            <p style="font-size: 13px"> Single
+                                <p style="font-size: 11px; color: gray;">Number of Pockets<br></p>
+                                <p style="font-size: 13px"> 1
+                        </div>
+                        <div class="col-md-6">
+                            <p style="font-size: 11px; color: gray;">Fit<br></p>
+                            <p style="font-size: 13px"> Regular Fit</p>
+                            <p style="font-size: 11px; color: gray;">Main Trend<br></p>
+                            <p style="font-size: 13px">New Basics</p>
+                            <p style="font-size: 11px; color: gray;">Neck<br></p>
+                            <p style="font-size: 13px">Round Neck</p>
+                            <p style="font-size: 11px; color: gray;">Occasion<br></p>
+                            <p style="font-size: 13px">Casual</p>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <b><a href="#" style="color:#FF3E6C; text-decoration: none;">See More </a></b><br>
+                <hr>
+
+
+
+
+
+            </p>
+            <p>
+                RATINGS<br>
+                <p style="font-size:40PX; margin-top: 0%; " class="product_detail_rating"> 4.5 <i class="fa fa-star"
+                        style="font-size:20px; margin-left:0px ; margin-bottom: -20px;color: green;"></i></P>
+                <div style="margin-top: -10%;">
+                    <br>
+                    5.3k Verified Buyers
+                </div>
+                <hr style="width:0.5px; height:100px; position: absolute; left: 72%; margin-top: -8%; opacity: 0px;" />
+
+            </p>
+
+            <div style="margin-left: 50%; margin-top:-20%;">
+                5 <i class="fa fa-star" style="color: green;"></i>
+                <div class="w3-light-grey" style="width:30%; margin-left: 10%; margin-top: -6%;">
+                    <div class="w3-grey" style="height:5px;width:70%"></div>
+                </div>
+
+                4 <i class="fa fa-star" style="color: green;"></i>
+                <div class="w3-light-grey" style="width:30%; margin-left: 10%; margin-top: -6%;">
+                    <div class="w3-grey" style="height:5px;width:70%"></div>
+                </div>
+
+                3 <i class="fa fa-star" style="color: green;"></i>
+                <div class="w3-light-grey" style="width:30%; margin-left: 10%; margin-top: -6%;">
+                    <div class="w3-grey" style="height:5px;width:70%"></div>
+                </div>
+
+                2 <i class="fa fa-star" style="color: rgb(223, 68, 37);"></i>
+                <div class="w3-light-grey" style="width:30%; margin-left: 10%; margin-top: -6%;">
+                    <div class="w3-grey" style="height:5px;width:70%"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 10%;">
+
+                <b>
+                    <h3 style="font-size: 15px;">WHAT CUSTOMERS SAID</h3>
+                </b>
+
+                <h4 style="font-size: 15px;">Fit</h4><br>
+                <div class="w3-light-grey" style="width:30%; margin-left: 0%; margin-top: -4%; ">
+                    <div class="w3-green" style="height:5px;width:70%"></div>
+                </div>
+                <h6 style="font-size: 12px ; margin-left:35% ; margin-top:-12px">As Expected (80%) </h6>
+
+
+            </div>
+
+            <div style="margin-top: 3%; ">
+
+                <h4 style="font-size: 15px;">Length</h4><br>
+                <div class="w3-light-grey" style="width:30%; margin-left: 0%; margin-top: -4%; ">
+                    <div class="w3-green" style="height:5px;width:70%"></div>
+                </div>
+                <h6 style="font-size: 12px ; margin-left:35% ; margin-top:-12px">As Expected (88%) </h6>
+                <b><a href="#" style="color:#FF3E6C; text-decoration: none;">View Details </a></b><br>
+            </div>
+
+            <hr>
+
+            <div>
+                <b>
+                    <h3>Customer Reviews (352)
+                    </h3>
+                </b><br>
+                <p style="font-size: 12px; margin-top: -1%;"> 3 <i class="fa fa-star"
+                        style="color: green; margin-right: 15px;"></i>The colour is slightly on the lighter tone !
+                    It is perfect in the price range, kinda gives military feel, if it was little dark would have
+                    loved it more. Just an instruction = If you want to preserve it's life/or any product for longer
+                    time, follow the instructions on the tag. If you get this product under 150INR go for it without
+                    blinking, it won't disappoint.
+                    <br><br> Imran Ali3 Mar 2021
+
+                </p>
+                <img style="height:70px; width:70px; margin-top:5%"
+                    src="https://assets.myntassets.com/h_150,q_75,w_150,c_thumb,fl_progressive/assets/images/2021/3/16/eefc34e0-e226-4cb8-88be-085138d5755a1615872366737-B612_20210316_105055_883.jpg">
+                <img style="height:70px; width:70px; margin-top:5%"
+                    src="https://assets.myntassets.com/h_150,q_75,w_150,c_thumb,fl_progressive/assets/images/2021/2/4/c735ed30-8a6b-4e76-adbf-c9b5d521e0cb1612449274697-IMG_PixelCam_04022021_195616-removebg-preview-removebg-preview-2.jpg">
+
+                <img style="height:70px; width:70px; margin-top:5%"
+                    src="https://assets.myntassets.com/h_200,q_75,w_200,c_thumb,fl_progressive/assets/images/2021/4/21/f64c1b00-a4bf-4e2c-98f2-5a931667dad41618996257754-20210421_143313.jpg">
+
+                <hr>
+
+                <p style="font-size: 12px; margin-top: 5%;"> 4 <i class="fa fa-star"
+                        style="color: green; margin-right: 15px;"></i>Tshirt looks good , fitting is as shown , it
+                    might seem tight but it is how its shown , olive colour is not so bright but slightly faint but
+                    looks good especially on indian complexion<br><br>
+
+                    Tejas Chodya4 Feb 2021
+
+                </p>
+                <img style="height:70px; width:70px; margin-top:5%"
+                    src="https://assets.myntassets.com/h_150,q_75,w_150,c_thumb,fl_progressive/assets/images/2021/2/4/c735ed30-8a6b-4e76-adbf-c9b5d521e0cb1612449274697-IMG_PixelCam_04022021_195616-removebg-preview-removebg-preview-2.jpg">
+
+                <hr>
+
+                <p style="font-size: 12px; margin-top: 5%;"> 4 <i class="fa fa-star"
+                        style="color: green; margin-right: 15px;"></i>Overall the product is good but the colour is
+                    not same it shown in the picture The colour of the tshirt is too light as per shown above in the
+                    reference image
+                    <br><br>
+
+                    Radhika Naik29 Jan 2021
+
+                </p>
+                <hr>
+
+                <b><a href="#" style="color:#FF3E6C; text-decoration: none;">View all 256 Reviews </a></b><br>
+                <h6 style="font-size: 12px;">Product Code: <b> 1996781 </b>
+                    <h6 style="font-size: 12px;">Seller:<b><a href="#"
+                                style="color:#FF3E6C; text-decoration: none;">Truent commerce </a></b><br><br>
+                        <b><a href="#" style="color:#333; text-decoration: none;">View Supplier Information
+                            </a></b><br>
+                        <hr>
+
+                    </h6>
+
+
+            </div>
+
+        </div>
+
+</isdecorate>

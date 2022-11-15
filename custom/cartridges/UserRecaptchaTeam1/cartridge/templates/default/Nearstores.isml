@@ -1,0 +1,34 @@
+<isdecorate template="common/layout/page">
+ <isscript>
+         <iscomment> var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/findlocation.js');  </iscomment>
+    </isscript>
+    <div class="container">
+        <div class="mb-3">
+           
+                <h1>Find a store...</h1>
+           
+            <form class="Storelocation-form" method="GET" action="${URLUtils.url('Storelocator-Find')}">
+           <div class="row">
+               <a href="${URLUtils.url('Storelocator-Find','postalcode','')}"> <img src="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/000000/external-locator-shipping-delivery-and-fulfillment-smashingstocks-hand-drawn-black-smashing-stocks.png" style="height:30px;width:30px"/></a>
+                <input name="postalcode" type="text" class="form-control col-4" id="storepostcode"
+                    aria-describedby="location" placeholder="Find stores near Your Location  "
+                      <isif condition="${pdict.zipcode!='' || pdict.zipcode!= null }">
+               value="${pdict.zipcode}"
+            </isif>>
+                <button id="find-store" class="btn btn-primary col-2" type="submit">Find your Stores</button>
+            </div>
+            </form>
+            <div id="location" class="form-text">Fetch details according to your location</div>
+        </div>
+   <div id="allstpresoutput">
+        <isloop items="${pdict.stores}" var="store" status="loopState">
+        <div class="card-body" id="${store.ID}">
+            <div class="form-check">
+                <input type="radio" id="input-${store.ID}" class="form-check-input select-store-input" name="store" value="${store.ID}" data-store-info="${JSON.stringify(store)}"/>
+                <label class="form-check-label" for="input-${store.ID}"><isinclude template="storeDetails" /></label>
+            </div>
+        </div>
+</isloop>
+    </div>
+</isdecorate>

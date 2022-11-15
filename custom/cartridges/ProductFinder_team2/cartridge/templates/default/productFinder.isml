@@ -1,0 +1,100 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/addressBook.js');
+        assets.addJs('/js/Usercriteria.js');
+        assets.addCss('/css/account/addressBook.css');
+        assets.addJs('/js/search.js');
+        assets.addJs('/js/searchRefinements.js');
+        assets.addCss('/css/search.css');
+    </isscript>
+<style>
+
+.box1{
+margin-left: 22px;
+box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+text-align: center;
+padding-top: 65px;
+overflow-x: scroll;
+    width: 300px;
+}
+
+
+
+.box1{
+    overflow-y: scroll;
+    height: 400px;
+}
+
+
+</style>
+    <form action="${URLUtils.url('Productfinder-ShowPLP')}" method="GET">
+ 
+
+        <div class="container-fluid">
+        <div class="text-center"><h1>Choose Your Product</h1></div>
+        <div class="row">
+        <div class="col-3 box1 one">
+        <p class="h4 new1">${pdict.result1[0].displayName}</p>
+         <isloop items="${pdict.result1[0].values[0].subCategories}" var="onecategory" status="loopstatus">
+            <div class="form-group">
+                <label>
+                ${onecategory.displayValue}
+                    <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
+                </label>
+                <input type="checkbox" id="city" value="${onecategory.id}" name="category" onchange="getbrand()" data-href="${refinementValue.url}" <isprint
+                    value="${pdict.addressForm.city.attributes}" encoding="off" />
+                autocomplete="address-level2">
+                <div class="invalid-feedback"></div>
+            </div>
+        </isloop>
+
+            </div>
+
+
+<div class="col-4 box1 two">
+        <p class="h4 new1">${pdict.result1[1].displayName}</p>
+
+         <isloop items="${pdict.result1[1].values}" var="onecolor" status="loopstatus">
+            <div class="form-group">
+                <label class="" for="city">
+                ${onecolor.displayValue}
+                    <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
+                </label>
+                <input type="checkbox" class="" id="brand" name="color" value="${onecolor.presentationId}"   data-href="${refinementValue.url}"<isprint
+                    value="${pdict.addressForm.city.attributes}" encoding="off" />
+                autocomplete="address-level2">
+                <div class="invalid-feedback"></div>
+            </div>
+        </isloop>
+
+
+        </div>
+
+
+<div class="col-3 box1 three">
+        <p class="h4 new3">${pdict.result1[4].displayName}</p>
+
+         <isloop items="${pdict.result1[4].values}" var="onebrand" status="loopstatus">
+            <div class="form-group">
+                <label class="" for="city">
+                ${onebrand.displayValue}
+                    <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
+                </label>
+                <input type="checkbox" class="" id="brand" name="brand" value="${onebrand.displayValue}" data-href="${refinementValue.url}" <isprint
+                    value="${pdict.addressForm.city.attributes}" encoding="off" />
+                autocomplete="address-level2">
+                <div class="invalid-feedback"></div>
+            </div>
+        </isloop>
+
+
+        </div>
+</div>
+</div>
+
+    <button type="submit"id="searcProduct" class="btn btn-info">GO</button>
+    </form>
+
+
+</isdecorate>

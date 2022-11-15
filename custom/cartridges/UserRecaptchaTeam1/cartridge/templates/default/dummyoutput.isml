@@ -1,0 +1,20 @@
+<isdecorate template="common/layout/page">
+ <isscript>
+          <iscomment> var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/customapicall.js');   </iscomment>
+    </isscript>
+    <div class="container">
+        <div class="mb-3">
+                <h1>Enter Category</h1>
+            <form class="Ocapi-Category-App" method="GET" action="${URLUtils.url('NewOcapiApp-GetAllProduct')}">
+           <div class="row">
+                <input name="cgid" type="text" class="form-control col-4" id="OcapiCatagory"
+                    aria-describedby="location" placeholder="Find stores near Your Location ">
+                <button id="find-store" class="btn btn-primary col-2" type="submit">Find Products</button>
+            </div>
+            </form>
+        </div>
+   <div id="allOcapiOutputPLP">
+       
+    </div>
+</isdecorate>

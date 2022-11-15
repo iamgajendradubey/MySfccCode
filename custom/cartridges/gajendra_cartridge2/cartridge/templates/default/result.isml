@@ -1,0 +1,7 @@
+
+<div>
+    <h1>Result:</h1>
+</div>
+
+<iscomment> <p>${Resource.msgf('errormessage','forms',null,"dynamic","msg")}</p> </iscomment>
+<isprint value="${pdict.num}" encoding="on" />

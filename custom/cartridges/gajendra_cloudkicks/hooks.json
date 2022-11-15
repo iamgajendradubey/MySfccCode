@@ -1,0 +1,12 @@
+{
+    "hooks":[
+        {
+        "name":"gajendra",
+        "script":"./cartridge/scripts/hooks/hook1.js"
+        },
+        {
+            "name":"gajendra2",
+           "script":"./cartridge/script/job/Hook/hook2.js"
+        }
+]
+}

@@ -1,0 +1,117 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/search.js');
+        assets.addJs('/js/searchRefinements.js');
+        assets.addCss('/css/search.css');
+</isscript>
+    <div class="container">
+
+        <h2 class="text-center">Root Level</h2>
+        <div class="row">
+            <isloop items="${pdict.result1}" var="refinement" status="loopstatus">
+                <div class="col-sm-4" style="overflow:scroll; height:300px;">
+                    <input id="endURL" type="hidden" name="" value=""
+                        data-href="${URLUtils.url('Productfinder-ShowPLP')}">
+                    <div
+                        class="card collapsible-sm refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                        <div class="card-header col-sm-12">
+                            <button class="title btn text-left btn-block d-md-none"
+                                aria-controls="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                                aria-expanded="false">
+                                <span>${refinement.displayName}</span>
+                            </button>
+                            <h2 aria-label="${refinement.displayName}" class="d-none d-md-block">
+                                ${refinement.displayName}</h2>
+                        </div>
+                        <div class="card-body content value"
+                            id="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                            <!--- CATEGORY REFINEMENTS --->
+                            <isif condition="${refinement.isCategoryRefinement}">
+                                <isset name="categories" value="${refinement.values}" scope="page" />
+                                <isinclude template="search/refinements/categories" />
+                            </isif>
+                            <!--- ATTRIBUTE REFINEMENTS --->
+                            <isif condition="${refinement.isAttributeRefinement || refinement.isPromotionRefinement}">
+                                <ul class="values content" style="list-style: none">
+                                    <isloop items="${refinement.values}" var="refinementValue" status="colorloopstatus">
+                                        <isif condition="${refinementValue.type === 'color'}">
+                                            <li class="color-attribute ${!refinementValue.selectable ? 'disabled' : ''}"
+                                                data-href="${refinementValue.url}">
+                                                <input class="color-val" type="radio" name="color"
+                                                    data-href="${refinementValue.url}"
+                                                    id="color${colorloopstatus.count}" />
+                                                <label for="color${colorloopstatus.count}">
+                                                    <span
+                                                        class="${refinementValue.swatchId} swatch-circle color-value swatch-mark <isif condition="
+                                                        ${refinementValue.selected && refinementValue.selectable}">selected
+                                        </isif>
+                                        <isif condition="${!refinementValue.selectable}">disabled</isif>"> </span>
+                                        <span id="${refinementValue.swatchId}-assistive"
+                                            class="sr-only selected-assistive-text"> ${refinementValue.selected && refinementValue.selectable ? Resource.msg('msg.assistive.selected.text', 'common', null) :
+                                                                                     ''} ${refinementValue.title} </span>
+                                        </label>
+                                        </li>
+                                    <iselseif condition="${refinementValue.type === 'size'}">
+                                            <li style="list-style: none"
+                                                class="col-sm-2 col-md-12 ${!refinementValue.selectable ? 'disabled' : ''}"
+                                                data-href="${refinementValue.url}">
+                                                <input class="size-val" name="size" id="size${colorloopstatus.count}"
+                                                    type="radio" data-href="${refinementValue.url}"
+                                                    class="${!refinementValue.selectable ? 'disabled' : ''}" <isif
+                                                    condition="${!refinementValue.selectable}">disabled
+                            </isif> >
+                            <label for="size${colorloopstatus.count}">
+                                <span aria-hidden="true" class="${refinementValue.swatchId}<isif condition="
+                                    ${refinementValue.selected && refinementValue.selectable}">selected</isif>">
+                                    ${refinementValue.displayValue} </span>
+                            </label>
+                            <span class="sr-only selected-assistive-text"
+                                id="${refinementValue.displayValue}-assistive">
+                                ${refinementValue.selected && refinementValue.selectable ? Resource.msg('msg.assistive.selected.text', 'common', null) :
+                                ''}
+                                ${refinementValue.title}
+                            </span>
+
+                            </li>
+                            <iselse>
+                                <isinclude template="search/refinements/attributes/boolean" />
+                                </isif>
+            </isloop>
+            </ul>
+            </isif>
+
+            <!--- PRICE REFINEMENTS --->
+            <isif condition="${refinement.isPriceRefinement}">
+                <ul style="list-style: none" class="values content">
+                    <isloop items="${refinement.values}" var="refinementValue" status="status">
+                        <li class="col-sm-4 col-md-12" data-href="${refinementValue.url}">
+                            <input class="price-val" name="price" type="radio" data-href="${refinementValue.url}" />
+
+
+                            <span aria-hidden="true">
+                                ${refinementValue.displayValue}
+                            </span>
+                            <span class="sr-only selected-assistive-text" id="price-${status.index}-assistive">
+                                ${refinementValue.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                                ${refinementValue.title}
+                            </span>
+
+                        </li>
+                    </isloop>
+                </ul>
+            </isif>
+
+        </div>
+    </div>
+    </div>
+    </isloop>
+
+
+
+
+    </div>
+    <button id="searcProduct" type="button" class="btn btn-primary">Search Product</button>
+    </div>
+
+</isdecorate>

@@ -1,0 +1,21 @@
+{
+
+    "version": "0.1.0",
+
+    "configurations": [
+
+
+
+        {
+
+            "type": "prophet",
+
+            "request": "launch",
+
+            "name": "bjxc-002.sandbox.us01.dx.commercecloud.salesforce.com"
+
+        }
+
+    ]
+
+}

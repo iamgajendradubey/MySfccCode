@@ -1,0 +1,20 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/geocoding.js');
+</isscript>
+    <form id="geoForm" action="${URLUtils.url('Geocoding-GetAddress')}" method="GET">
+        <div class="form-group required">
+            <label class="form-control-label" for="Geoaddress">
+                <isprint value="${pdict.myform.number.label}" encoding="htmlcontent" />
+            </label>
+            <input type="text" id="Geoaddress" class="form-control" <isprint
+                value="${pdict.myform.number.attributes}" encoding="off" />>
+            <div class="invalid-feedback"></div>
+        </div>
+
+        <button id="geoButton" class="btn btn-block btn-success">Submit</button>
+
+    </form>
+    <div id="GeoapiResponce"></div>
+</isdecorate>

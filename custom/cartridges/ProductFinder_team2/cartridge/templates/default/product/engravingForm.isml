@@ -1,0 +1,28 @@
+  <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/engravingMessage.js');
+        assets.addCss('/css/product/detail.css');
+    </isscript>
+
+<div>
+    <h1 id="userEngraveMessageOutput"></h1>
+</div>
+
+
+<form action="" class="d-none" id="engrave-form" method="POST">
+    <!-- Address Title -->
+    <div class="row">
+        <div class="form-group col-9" id="Hideshow">
+            <label class="form-control-label" for="message">
+                <b>Write Message Here</b>
+               
+            </label>
+            <input type="text" class="form-control userEngraveMessage" id="engravemessage" <isprint
+                value="${pdict.engravingForm.message.attributes}" encoding="off" />
+            autocomplete="given-name">
+            <div class="invalid-feedback"></div>
+  <button type="submit" class="btn btn-primary m-3 addengravemessage-btn"> Add message</button>
+        </div>
+    </div>
+</form>
+

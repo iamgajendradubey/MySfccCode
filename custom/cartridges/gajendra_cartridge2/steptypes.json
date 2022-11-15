@@ -1,0 +1,80 @@
+
+
+{
+    "step-types":
+    {
+      "script-module-step":
+      [
+        {
+          "@type-id":"custom.SendMailsJob",
+          "@supports-parallel-execution":"true",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"false",
+          "description":"My custom script step type",
+          "module":"gajendra_cartridge2/cartridge/scripts/job/MailsendJob.js",
+          "function":"stepcheck",
+          "transactional":"true",
+          "timeout-in-seconds":"900"
+        },
+        {
+          "@type-id":"custom.updateProductAttributeJob",
+          "@supports-parallel-execution":"true",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"false",
+          "description":"My custom script step type",
+          "module":"gajendra_cartridge2/cartridge/scripts/job/updateProduct.js",
+          "function":"updateProductAttribute",
+          "transactional":"true",
+          "timeout-in-seconds":"900"
+        }
+      ],
+      
+      "chunk-script-module-step":
+      [
+        {
+          "@type-id":"custom.MyCustomChunkScriptModuleStep",
+          "@supports-parallel-execution":"false",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"true",
+          "description":"My custom chunk script step type",
+          "module":"my_cartridge/cartridge/scripts/steps/myModule.ds",
+          "before-step-function":"beforeStep",
+          "total-count-function":"getTotalCount",
+          "before-chunk-function":"beforeChunk",
+          "read-function":"read",
+          "process-function":"process",
+          "write-function":"write",
+          "after-chunk-function":"afterChunk",
+          "after-step-function":"afterStep",
+          "chunk-size":10,
+          "transactional":"true",
+          "parameters":
+          {
+            "parameter":
+            [
+              {
+                "@name":"MyParameter",
+                "@type":"boolean",
+                "@required":"false"
+              }
+            ]
+          },
+          "status-codes": 
+          {
+                    "status": 
+            [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                "description": "Used when the step finished successfully."
+                        }
+                    ]
+                }
+        }
+      ]
+    }
+  }
+  

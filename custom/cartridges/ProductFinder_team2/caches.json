@@ -1,0 +1,8 @@
+{
+    "caches": [
+      {
+        "id": "unqiueCacheCustom",
+        "expireAfterSeconds": 3600
+      }
+    ]
+}

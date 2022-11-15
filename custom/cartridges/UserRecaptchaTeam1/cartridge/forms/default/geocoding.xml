@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+    <field formid="number" label="label.input.number.profile" type="integer" mandatory="true" binding="number" max-length="50" missing-error="assign1.number.missing" range-error="error.message.50orless" parse-error="error.message.parse.phone"/>
+    <action formid="save" valid-form="true"/>
+    <action formid="remove" valid-form="false"/>
+</form>

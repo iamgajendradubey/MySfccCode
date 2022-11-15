@@ -1,0 +1,110 @@
+<table width="600" border="0" cellspacing="0" cellpadding="4">
+    <tr height="100">
+        <td colspan="5" class="left"><h2>Packing Slip 00004502 For Order 00000902</h2></td>
+    </tr>
+    <tr>
+        <td class="table_detail w e n" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="fielditem2 w right top" width="100">Ship To:</td>
+        <td class="table_detail top" width="200">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="2">
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">mansi&nbsp;gupta</td>
+                        </tr>
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">mnbv</td>
+                        </tr>
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">kjhgfd</td>
+                        </tr>
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">indore,&nbsp;AL&nbsp;45655</td>
+                        </tr>
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">rishi@yopmail.com</td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+            </table>
+        </td>
+        <td class="fielditem2 right top" width="100">Ship From:</td>
+        <td class="table_detail e top" width="200">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="2">
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">SiteGenesis</td>
+                        </tr>
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">5 Wall Street</td>
+                        </tr>
+                        <tr>
+                        <td class="infobox_item" nowrap="nowrap">Burlington, MA 01803 USA</td>
+                        </tr>
+                    </table>
+                </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+    <td class="table_detail s w e" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+    <td class="table_detail w e" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+    <td colspan="4" class="fielditem2 e w ">Shipping Method:&nbsp;Shipping (Overnight)</td>
+    </tr>
+    <tr>
+    <td class="table_detail s w e" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+    <td class="table_detail w e" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="4" class="fielditem2 e w ">This package includes:</td>
+    </tr>
+    <tr>
+        <td class="table_detail w e" colspan="4">&nbsp;</td>
+    </tr>
+    <!-- ProductLineItems -->
+    <tr>
+        <td class="table_detail center w">1&nbsp;</td>
+        <!-- If the line item does not have a product, use the product ID of the line item -->
+        <td class="table_detail">029407331289M</td>
+        <td class="table_detail e" colspan="2">Solid Silk Tie&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="table_detail center w">+&nbsp;</td>
+        <td class="table_detail">&nbsp;</td>
+        <td class="table_detail e" colspan="2">1 of Engraving Options: With Engraving</td>
+    </tr>
+    <tr>
+        <td class="table_detail w e" colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="table_detail center w">1&nbsp;</td>
+        <!-- If the line item does not have a product, use the product ID of the line item -->
+        <td class="table_detail">029407331289M</td>
+        <td class="table_detail e" colspan="2">Solid Silk Tie&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="table_detail center w">+&nbsp;</td>
+        <td class="table_detail">&nbsp;</td>
+        <td class="table_detail e" colspan="2">1 of Engraving Options: With Engraving</td>
+    </tr>
+    <tr>
+        <td class="table_detail w e" colspan="4">&nbsp;</td>
+    </tr>
+<!-- EO ProductLineItems -->
+<tr>
+<td colspan="4" class="table_detail w e s">&nbsp;</td>
+</tr>
+</table>

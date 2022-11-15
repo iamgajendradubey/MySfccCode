@@ -1,0 +1,13 @@
+service1="Gajendra.Dad.Service";
+service2="GajendraWetherApi";
+service3="LoyalityPointService";
+service4="accessTokenGenerateOcapi";
+currencyconverterservice="Currencyconversion";
+plpservice="GetAllproductsByOcapi";
+module.exports={
+    service1:service1,
+    service2:service2,
+    service3:service3,
+    currencyconverterservice:currencyconverterservice,
+    plpservice:plpservice
+}

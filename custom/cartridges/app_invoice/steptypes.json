@@ -1,0 +1,86 @@
+
+{
+    "step-types":
+    {
+      "script-module-step":
+      [
+        {
+          "@type-id":"custom.AddressQRCode",
+          "@supports-parallel-execution":"true",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"true",
+          "description":"My custom script step type",
+          "module":"app_invoice/cartridge/scripts/jobs/QrCode.js",
+          "function":"order",
+          "transactional":"false",
+          "timeout-in-seconds":"900",
+          "parameters":
+          {
+            "parameter":
+            [
+              {
+                "@name":"Address",
+                "@type":"string",
+                "@required":"true",
+                "description":"A required boolean parameter."
+              }
+            ]
+          },
+          "status-codes": 
+          {
+                    "status": 
+            [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "FINISHED",
+                "description": "Used when the step finished successfully."
+                        },
+                        {
+                            "@code": "FINISHED_WITH_WARNINGS",
+                "description": "Used when the step finished with warnings."
+                        }
+                    ]
+                }
+        }
+      ],
+      "pipeline-step":
+      [
+        {
+          "@type-id":"custom.MyCustomPipelineStepType",
+          "@supports-parallel-execution":"false",
+          "@supports-site-context":"false",
+          "@supports-organization-context":"true",
+          "pipeline":"MyProcessPipeline-MyStartNode",
+          "description":"This is a custom pipeline step type",
+          "parameters":
+          {
+            "parameter":
+            [
+              {
+                "@name":"MyParameter11",
+                "@type":"boolean",
+                "@required":"true",
+                "description":"A required boolean parameter."
+              }
+            ]
+          },
+          "status-codes": 
+          {
+                    "status": 
+            [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        }
+                    ]
+                }
+        }
+      ]
+      
+    }
+  }
+  
+  

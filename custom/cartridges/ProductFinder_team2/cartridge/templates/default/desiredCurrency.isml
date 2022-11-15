@@ -1,0 +1,6 @@
+
+
+<isif condition="${pdict.desiredCurrency != null}">
+    <h4>  € <b> ${pdict.desiredCurrency}</b></h4>
+<iselse/>
+</isif>

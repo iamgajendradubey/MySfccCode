@@ -1,0 +1,24 @@
+<label>${option.name}</label>
+
+ <p class="d-none selectedoptionEngraving">${option.selectedValueId}</p>
+<select class="options-select custom-select form-control">
+    <isloop items="${option.values}" var="value">
+        <option class="new11" data-value-id="${value.id}" value="${value.url}" <isif
+            condition="${value.id === option.selectedValueId}">selected</isif>
+            >
+            [${value.price}] ${value.displayValue}
+        </option>
+    </isloop>
+</select>
+<br>
+<isif condition="${option.selectedValueId == "basicEngraving"}">
+        <div class="form-group" id="engrave-msg">
+                <label for="message">
+                Enter Engraving Message Here
+                </label>
+                    <textarea class="form-control" id="userEngraveMessageOutput" rows="3" cols="65" maxlength="50" placeholder="Enter text here....."></textarea>
+                <p class=" text-danger " id="invalid-feedback-engravemessage"></p>
+
+        </div>
+        </isif>
+

@@ -57,6 +57,25 @@
 			type="string"
 			binding="nickname" />
 
+			<field 
+			formid="verifyRecaptcha" 
+			label="description.checkbox.emailsignup.profile"  
+			type="boolean"/>
+			
+        <field 
+            formid="sitekey" 
+            label="label.input.sitekey.profile" 
+            mandatory="false" 
+            missing-error="error.message.required" 
+            type="string" />
+
+        <field 
+			formid="recaptcha" 
+			label="label.input.recaptcha.profile" 
+			mandatory="false" 
+			missing-error="error.message.required" 
+			type="string" />
+
     <field
 			formid="email"
 			label="label.input.email.profile"

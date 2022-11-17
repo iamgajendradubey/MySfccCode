@@ -1,0 +1,22 @@
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+
+
+    <menuitem id="gajendra_menu_item" position="3400" site="true">
+        <name xml:lang="x-default">@customWelcomeMenu</name>
+        <short_description xml:lang="x-default">Custom Business Manager Extension</short_description>
+        <description xml:lang="x-default">Hello</description>
+        <icon></icon>
+    </menuitem>
+    <menuaction id="gajendra_menu_item" menupath="gajendra_menu_item" position="1" site="true">
+        <name xml:lang="x-default">welcome</name>
+        <short_description xml:lang="x-default">welcome</short_description>
+        <description xml:lang="x-default">gajendra_menu_item 1</description>
+        <exec pipeline="CustomMenuframe" node="one" />
+        <sub-pipelines>
+          <pipeline name="CustomMenuframe"/>
+         </sub-pipelines>
+        <icon></icon>
+    </menuaction>
+</extensions>

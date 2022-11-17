@@ -63,6 +63,13 @@
 			formid="verifyRecaptcha" 
 			label="description.checkbox.emailsignup.profile"  
 			type="boolean"/>
+			
+        <field 
+            formid="sitekey" 
+            label="label.input.sitekey.profile" 
+            mandatory="false" 
+            missing-error="error.message.required" 
+            type="string" />
 
         <field 
 			formid="recaptcha" 

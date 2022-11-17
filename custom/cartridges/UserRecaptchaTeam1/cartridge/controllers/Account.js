@@ -34,7 +34,7 @@ var URLUtils = require('dw/web/URLUtils');
  * @param {serverfunction} - post
  */
  function validateCaptcha(token) {
-    var currencyconvert = require('UserRecaptchaTeam1/cartridge/services/recaptchaService');
+    var currencyconvert = require('*/cartridge/services/recaptchaService');
     var secretkey='6LcrJkIiAAAAAH5THR-8NGi6J9SpK6L5kDoyhRfr';
     var svcResult = currencyconvert.recaptchaService(secretkey,token);
 

@@ -65,12 +65,6 @@ server.append(
             oAuthReentryEndpoint: 1,
             createAccountUrl: createAccountUrl
         });
-
-
-        // var data={
-        //     num:"Message is saved successfully"
-        //    };
-        //    res.render('result',data);
         next();
     }
 );

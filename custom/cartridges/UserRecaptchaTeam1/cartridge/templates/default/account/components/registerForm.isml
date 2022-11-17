@@ -1,6 +1,6 @@
-<div class="d-none" id="siteKey">
+<iscomment> <div class="d-none" id="siteKey">
     6LcrJkIiAAAAAM7xj7Pt3ozU1lVBPkP3KJnuKMOK
-</div>
+</div> </iscomment>
 <form
     action="${pdict.createAccountUrl}"
     class="registration"
@@ -136,17 +136,23 @@
             <isprint value=${pdict.profileForm.customer.recaptcha.attributes} encoding="off" />
         >
 
+     <input
+            type="hidden"
+            class="form-control"
+            id="registration-form-sitekey"
+            value="6LcrJkIiAAAAAM7xj7Pt3ozU1lVBPkP3KJnuKMOK"
+        >
+
     <div class="form-group custom-control custom-checkbox <isif condition="${!!pdict.profileForm.customer.recaptcha.mandatory === true}">required</isif>">
         <input
             type="checkbox"
-            class="custom-control-input" id="verifyRecaptcha"
+            class="custom-control-input" id="recaptcha-validation"
             <isprint value=${pdict.profileForm.customer.verifyRecaptcha.attributes} encoding="off" />
         >
-        <label class="custom-control-label" for="verifyRecaptcha">
+        <label class="custom-control-label" for="recaptcha-validation">
             <iscomment> <isprint value="${pdict.profileForm.customer.verifyRecaptcha.label}" encoding="htmlcontent" /> </iscomment>
             Verify you're a human
         </label>
-         <div class="invalid-feedback" id="verifyRecaptcha"></div>
     </div>
 
     <div class="form-group custom-control custom-checkbox">
@@ -174,7 +180,6 @@
             ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
         </a>
     </div>
-    <isslot id="header-login-mansi" context="global" description="Slot below (Slot above the site header)" />
-
+    
 </form>
     <script src="https://www.google.com/recaptcha/api.js?render=6LcrJkIiAAAAAM7xj7Pt3ozU1lVBPkP3KJnuKMOK"></script>

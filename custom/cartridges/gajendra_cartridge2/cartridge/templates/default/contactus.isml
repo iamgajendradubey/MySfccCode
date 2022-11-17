@@ -1,7 +1,7 @@
 <isdecorate template="common/layout/page">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-        assets.addJs('/js/productTile.js');
+        assets.addJs('/js/recaptcha.js');
         assets.addCss('/css/homePage.css');
     </isscript>
 
@@ -81,7 +81,35 @@
                                 </textarea>
                             <div class="invalid-feedback"></div>
                         </div>
+<input
+            type="hidden"
+            class="form-control"
+            id="registration-form-recaptcha"
+            data-missing-error="${Resource.msg('error.message.required','forms',null)}"
+            data-range-error="${Resource.msg('error.message.50orless','forms',null)}"
+            aria-describedby="form-fname-error"
+            <isprint value=${pdict.SFRAhelloform.recaptcha.attributes} encoding="off" />
+        >
 
+     <input
+            type="hidden"
+            class="form-control"
+            id="registration-form-sitekey"
+            value="6LcrJkIiAAAAAM7xj7Pt3ozU1lVBPkP3KJnuKMOK"
+        >
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    <div class="form-group custom-control custom-checkbox <isif condition="${!!pdict.SFRAhelloform.recaptcha.mandatory === true}">required</isif>">
+        <input
+            type="checkbox"
+            class="custom-control-input" id="recaptcha-validation"
+            <isprint value=${pdict.SFRAhelloform.verifyRecaptcha.attributes} encoding="off" />
+        >
+        <label class="custom-control-label" for="recaptcha-validation">
+            <iscomment> <isprint value="${pdict.profileForm.customer.verifyRecaptcha.label}" encoding="htmlcontent" /> </iscomment>
+            Verify you're a human
+        </label>
+    </div>
                         <div class="row mb-3">
                             <div class="col-6">
                                 <button type="submit" name="submit" class="btn btn-block btn-primary">Submit</button>
@@ -96,3 +124,4 @@
     </div>
 
 </isdecorate>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcrJkIiAAAAAM7xj7Pt3ozU1lVBPkP3KJnuKMOK"></script>

@@ -9,6 +9,8 @@ var Geolocation = require("dw/util/Geolocation");
 var UUIDUtils = require("dw/util/UUIDUtils");
 var Resource = require('dw/web/Resource');
 var page = require("app_storefront_base/cartridge/controllers/ContactUs");
+var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
+
 server.extend(page);
 
 /**
@@ -20,8 +22,30 @@ server.extend(page);
  * @param {renders} - contactus isml
  * @param {serverfunction} - get
  */
+ function validateCaptcha(token) {
+  var currencyconvert = require('*/cartridge/services/recaptchaService');
+  var secretkey='6LcrJkIiAAAAAH5THR-8NGi6J9SpK6L5kDoyhRfr';
+  var svcResult = currencyconvert.recaptchaService(secretkey,token);
 
-server.replace("Landing", cache.applyDefaultCache, function (req, res, next) {
+  if (svcResult.status === 'OK'){
+      var a = svcResult.object;
+      if (a.success) {
+         if (a.score >0.3) {
+          return true;
+         }else{
+          return false;
+         }
+      }else{
+          return false;
+      }
+  }else{
+      return false;
+  }
+
+}
+
+
+server.replace("Landing", cache.applyDefaultCache,csrfProtection.generateToken, function (req, res, next) {
   var constant = require("*/cartridge/scripts/constants/constants.js");
   var heading = "Contact Us";
   var errorMessage = "";
@@ -42,6 +66,7 @@ server.replace("Landing", cache.applyDefaultCache, function (req, res, next) {
   var CustomObjectMgr = require("dw/object/CustomObjectMgr");
   var actionUrl = URLUtils.url("ContactUs-SaveContactus"); //sets the route to call for the form submit action
   var contactform = server.forms.getForm("loginform"); //creates empty JSON object using the form definition
+  
   contactform.clear();
   var co = null;
   var myarr = [];
@@ -126,14 +151,25 @@ server.post("Sendmail", cache.applyDefaultCache, function (req, res, next) {
 server.post(
   "SaveContactus",
   cache.applyDefaultCache,
+  csrfProtection.validateAjaxRequest,
   function (req, res, next) {
     var MyForm = server.forms.getForm("loginform");
     var MyFormObj = MyForm.toObject();
     MyFormObj.MyForm = MyForm;
+    
     if (MyForm.valid) {
       res.setViewData(MyFormObj);
       var formInfo = res.getViewData();
-
+      
+      // .....Captcha validation............
+      var Recaptchatoken=formInfo.recaptcha;
+      var output=validateCaptcha(Recaptchatoken);
+     
+      if (!output) {
+        var errorMessage=Resource.msg('error.message.to.invalidcaptcha', 'contactus', "Sorry! Your captcha validation failed");
+      res.redirect(URLUtils.url("ContactUs-Landing", "error", errorMessage));
+      return next()
+    }
      
       var optionid = formInfo.degree.toString();
       var co = null;
@@ -174,5 +210,9 @@ server.post(
     next();
   }
 );
-
+server.get("CaptchaWarning", function (req, res, next) {
+  
+  res.render("CaptchaWarning");
+  next();
+});
 module.exports = server.exports();
